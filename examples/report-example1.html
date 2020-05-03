@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Uptime Report [2020-04-01 - 2020-04-30]</title>
+<style>
+  html {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 90%;
+  }
+  h2 { text-align: center; }
+  p { text-align: center; }
+  table.check_table {
+    margin: 0 auto 1rem auto;
+    border-top: 1px lightgray solid;
+    border-left: 1px lightgray solid;
+  }
+  table.check_table th div, table.check_table td div {
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  }
+  tr.check_row:nth-child(even) td div {
+    background-color: #ececec;
+  }
+  tr.check_summary td div {
+    border-top: 1px solid gray;
+    font-weight: bold;
+    background-color: #ffffb0;
+  }
+  tr.taglevel-1 td:first-child div {
+    margin-left: 2rem;
+  }
+  tr.taglevel-2 td:first-child div {
+    margin-left: 4rem;
+  }
+  tr.check_summary td div.tr_0, tr.check_row td div.tr_0 {
+    background-color: #bbff90;
+  }
+  tr.check_summary td div.tr_1, tr.check_row td div.tr_1 {
+    background-color: #ffe3ab;
+  }
+  tr.check_summary td div.tr_2, tr.check_row td div.tr_2 {
+    background-color: #ffb183; /*#ff8d60;*/
+  }
+  table.summary_table {
+    margin: 0 auto 1rem auto;
+    border-top: 1px lightgray solid;
+    border-left: 1px lightgray solid;
+  }
+  table.summary_table td div {
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  }
+  table.summary_table div.summary_row {
+    background-color: #ececec;
+    text-align: right;
+  }
+  tr.summary_row td div.tr_0 {
+    background-color: #bbff90; border-radius: 8px;
+  }
+  tr.summary_row td div.tr_1 {
+    background-color: #ffe3ab; border-radius: 8px;
+  }
+  tr.summary_row td div.tr_2 {
+    background-color: #ffb183; border-radius: 8px;
+  }
+  div.footer {
+    text-align: center; font-style: italic; font-size: smaller;
+  }
+</style>
+</head>
+
+<body>
+<h2>Uptime Report [2020-04-01 - 2020-04-30]</h2>
+
+
+<div><table class='summary_table'><tbody>
+  <tr><th colspan=2><div>Average Uptime Summary</div></th></tr>
+  
+  
+  
+  
+    <tr class='summary_row'><td><div class='summary_row'>ALL</div></td>
+    <td><div class='tr_0'>
+    99.9732</div></td></tr>
+    
+      
+    
+      
+    
+      
+        
+    <tr class='summary_row'><td><div class='summary_row'>andromeda</div></td>
+    <td><div class='tr_0'>
+    99.9504</div></td></tr>
+    
+      
+    
+      
+        
+    <tr class='summary_row'><td><div class='summary_row'>andromeda + client-facing</div></td>
+    <td><div class='tr_0'>
+    99.9762</div></td></tr>
+    
+      
+    
+      
+    
+      
+    
+      
+        
+    <tr class='summary_row'><td><div class='summary_row'>andromeda + internal</div></td>
+    <td><div class='tr_1'>
+    99.7569</div></td></tr>
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+    <tr class='summary_row'><td><div class='summary_row'>calypso</div></td>
+    <td><div class='tr_0'>
+    99.979</div></td></tr>
+    
+      
+    
+      
+        
+    <tr class='summary_row'><td><div class='summary_row'>calypso + client-facing</div></td>
+    <td><div class='tr_0'>
+    99.9754</div></td></tr>
+    
+      
+    
+      
+    
+      
+    
+      
+        
+    <tr class='summary_row'><td><div class='summary_row'>calypso + internal</div></td>
+    <td><div class='tr_0'>
+    99.9848</div></td></tr>
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </tbody></table></div>
+
+<div><table class='check_table'>
+<tbody>
+<tr class='check_tableh'><th><div>Check Name</div></th><th><div>Uptime %</div></th><th><div>Downtime</div></th></tr>
+
+
+
+
+  <tr class='check_summary taglevel-0'><td><div>average uptime ALL</div></td>
+  <td><div class='tr_0'>99.9732</div></td><td><div>&nbsp;</div></td>
+  
+  
+    
+  
+    
+  
+    
+      
+  <tr class='check_summary taglevel-1'><td><div>average uptime andromeda</div></td>
+  <td><div class='tr_0'>99.9504</div></td><td><div>&nbsp;</div></td>
+  
+  
+    
+  
+    
+      
+  <tr class='check_summary taglevel-2'><td><div>average uptime andromeda + client-facing</div></td>
+  <td><div class='tr_0'>99.9762</div></td><td><div>&nbsp;</div></td>
+  
+    <tr class='check_row taglevel-2'><td><div>Andromeda Public Portal</div></td>
+    <td><div class='tr_1'>99.8865</div></td><td><div>49m 2s&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Andromeda Private Portal</div></td>
+    <td><div class='tr_0'>99.9815</div></td><td><div>8m&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Andromeda Login</div></td>
+    <td><div class='tr_0'>99.9861</div></td><td><div>6m&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Andromeda Alternate Portal</div></td>
+    <td><div class='tr_1'>99.9249</div></td><td><div>31m&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Andromeda API</div></td>
+    <td><div class='tr_0'>99.956</div></td><td><div>19m&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Andromeda Service alpha</div></td>
+    <td><div class='tr_0'>99.9931</div></td><td><div>3m&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Andromeda Service beta</div></td>
+    <td><div class='tr_0'>99.9931</div></td><td><div>3m&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Andromeda Service gamma</div></td>
+    <td><div class='tr_0'>100.0</div></td><td><div>&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Andromeda test services</div></td>
+    <td><div class='tr_0'>99.9537</div></td><td><div>20m&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Andromeda Random Server</div></td>
+    <td><div class='tr_0'>99.9977</div></td><td><div>1m&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Andromeda API2</div></td>
+    <td><div class='tr_0'>99.9954</div></td><td><div>2m&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Andromeda API3</div></td>
+    <td><div class='tr_0'>99.9954</div></td><td><div>2m&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Quantum</div></td>
+    <td><div class='tr_0'>99.9907</div></td><td><div>4m&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Leap</div></td>
+    <td><div class='tr_0'>100.0</div></td><td><div>&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Bananas</div></td>
+    <td><div class='tr_0'>99.9884</div></td><td><div>5m&nbsp;</div></td></tr>
+  
+  
+    
+  
+    
+  
+    
+  
+    
+      
+  <tr class='check_summary taglevel-2'><td><div>average uptime andromeda + internal</div></td>
+  <td><div class='tr_1'>99.7569</div></td><td><div>&nbsp;</div></td>
+  
+    <tr class='check_row taglevel-2'><td><div>Employee Portal</div></td>
+    <td><div class='tr_0'>100.0</div></td><td><div>&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Office connectivity</div></td>
+    <td><div class='tr_1'>99.5139</div></td><td><div>3h 30m&nbsp;</div></td></tr>
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+  <tr class='check_summary taglevel-1'><td><div>average uptime calypso</div></td>
+  <td><div class='tr_0'>99.979</div></td><td><div>&nbsp;</div></td>
+  
+  
+    
+  
+    
+      
+  <tr class='check_summary taglevel-2'><td><div>average uptime calypso + client-facing</div></td>
+  <td><div class='tr_0'>99.9754</div></td><td><div>&nbsp;</div></td>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso API</div></td>
+    <td><div class='tr_0'>100.0</div></td><td><div>&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso Authentication API</div></td>
+    <td><div class='tr_0'>100.0</div></td><td><div>&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso Analysis</div></td>
+    <td><div class='tr_0'>99.9977</div></td><td><div>1m&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso Portal Alpha</div></td>
+    <td><div class='tr_0'>99.9931</div></td><td><div>3m&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso Portal Beta</div></td>
+    <td><div class='tr_0'>99.9954</div></td><td><div>2m&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso Portal Gamma</div></td>
+    <td><div class='tr_1'>99.6134</div></td><td><div>2h 47m&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso Data Feed</div></td>
+    <td><div class='tr_1'>99.6181</div></td><td><div>2h 45m&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso Service1</div></td>
+    <td><div class='tr_0'>99.9954</div></td><td><div>2m&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso Service1 login</div></td>
+    <td><div class='tr_0'>99.9745</div></td><td><div>11m&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso Service2</div></td>
+    <td><div class='tr_0'>100.0</div></td><td><div>&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso Service3</div></td>
+    <td><div class='tr_0'>100.0</div></td><td><div>&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso Sandbox</div></td>
+    <td><div class='tr_0'>100.0</div></td><td><div>&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso FTP</div></td>
+    <td><div class='tr_0'>100.0</div></td><td><div>&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso Staging</div></td>
+    <td><div class='tr_0'>100.0</div></td><td><div>&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso www</div></td>
+    <td><div class='tr_0'>99.9954</div></td><td><div>2m&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso www2</div></td>
+    <td><div class='tr_0'>99.9977</div></td><td><div>1m&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso www3</div></td>
+    <td><div class='tr_0'>99.9954</div></td><td><div>2m&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso www4</div></td>
+    <td><div class='tr_0'>99.9977</div></td><td><div>1m&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso www5</div></td>
+    <td><div class='tr_0'>99.9977</div></td><td><div>1m&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso Random Server</div></td>
+    <td><div class='tr_1'>99.9236</div></td><td><div>33m&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso Product A</div></td>
+    <td><div class='tr_0'>100.0</div></td><td><div>&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso Product B</div></td>
+    <td><div class='tr_0'>100.0</div></td><td><div>&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Random Bananas</div></td>
+    <td><div class='tr_0'>99.9537</div></td><td><div>20m&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>ThirdParty API</div></td>
+    <td><div class='tr_0'>100.0</div></td><td><div>&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso Message Queue</div></td>
+    <td><div class='tr_0'>100.0</div></td><td><div>&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso someotherapi</div></td>
+    <td><div class='tr_0'>100.0</div></td><td><div>&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Acquisition API</div></td>
+    <td><div class='tr_0'>100.0</div></td><td><div>&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Acquisition2 API</div></td>
+    <td><div class='tr_0'>99.9977</div></td><td><div>1m&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Alternate www6</div></td>
+    <td><div class='tr_0'>100.0</div></td><td><div>&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Alternate www7</div></td>
+    <td><div class='tr_0'>100.0</div></td><td><div>&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso regional API1</div></td>
+    <td><div class='tr_0'>99.9954</div></td><td><div>2m&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso regional API2</div></td>
+    <td><div class='tr_0'>100.0</div></td><td><div>&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso regional API3</div></td>
+    <td><div class='tr_0'>100.0</div></td><td><div>&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso Product Z</div></td>
+    <td><div class='tr_0'>100.0</div></td><td><div>&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso Product Z (2)</div></td>
+    <td><div class='tr_0'>100.0</div></td><td><div>&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso Product Z (3)</div></td>
+    <td><div class='tr_0'>100.0</div></td><td><div>&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>More Bananas API (part of the exceedingly advanced bananas)</div></td>
+    <td><div class='tr_0'>99.956</div></td><td><div>19m&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>More Bananas API 2 (no, really)</div></td>
+    <td><div class='tr_0'>99.9931</div></td><td><div>3m&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso FooBar</div></td>
+    <td><div class='tr_0'>100.0</div></td><td><div>&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso FooBar 2</div></td>
+    <td><div class='tr_0'>100.0</div></td><td><div>&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Corporate www</div></td>
+    <td><div class='tr_0'>100.0</div></td><td><div>&nbsp;</div></td></tr>
+  
+  
+    
+  
+    
+  
+    
+  
+    
+      
+  <tr class='check_summary taglevel-2'><td><div>average uptime calypso + internal</div></td>
+  <td><div class='tr_0'>99.9848</div></td><td><div>&nbsp;</div></td>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso Employee Portal</div></td>
+    <td><div class='tr_0'>100.0</div></td><td><div>&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso Internal Tools</div></td>
+    <td><div class='tr_0'>100.0</div></td><td><div>&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso Office1 Circuit</div></td>
+    <td><div class='tr_0'>100.0</div></td><td><div>&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso Office2 Circuit</div></td>
+    <td><div class='tr_0'>99.9699</div></td><td><div>13m&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso Office3 Circuit</div></td>
+    <td><div class='tr_0'>99.9977</div></td><td><div>1m&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso Office3 Circuit 2</div></td>
+    <td><div class='tr_0'>100.0</div></td><td><div>&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso Office4 Circuit</div></td>
+    <td><div class='tr_0'>100.0</div></td><td><div>&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso Office5 Circuit (the one not on the moon)</div></td>
+    <td><div class='tr_0'>100.0</div></td><td><div>&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso Office5 Circuit 2 (the one on the moon)</div></td>
+    <td><div class='tr_0'>100.0</div></td><td><div>&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso Office6 Circuit</div></td>
+    <td><div class='tr_0'>99.9954</div></td><td><div>2m&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso Internal Tools 2</div></td>
+    <td><div class='tr_0'>99.9815</div></td><td><div>8m&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso Version Control</div></td>
+    <td><div class='tr_0'>99.9792</div></td><td><div>9m&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso Deployment Automation tools</div></td>
+    <td><div class='tr_0'>99.9653</div></td><td><div>15m&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso internal API</div></td>
+    <td><div class='tr_0'>99.9931</div></td><td><div>3m&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso internal API 2</div></td>
+    <td><div class='tr_1'>99.8218</div></td><td><div>1h 17m&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso Office7 Circuit</div></td>
+    <td><div class='tr_0'>99.971</div></td><td><div>12m 32s&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso Firewall1</div></td>
+    <td><div class='tr_0'>100.0</div></td><td><div>&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso Firewall2</div></td>
+    <td><div class='tr_0'>99.9606</div></td><td><div>17m&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso internal API 3</div></td>
+    <td><div class='tr_0'>99.9977</div></td><td><div>1m&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso Monitoring</div></td>
+    <td><div class='tr_0'>99.9745</div></td><td><div>11m&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso Monitoring 2</div></td>
+    <td><div class='tr_0'>99.9977</div></td><td><div>1m&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso Monitoring 3</div></td>
+    <td><div class='tr_0'>100.0</div></td><td><div>&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso regional controller</div></td>
+    <td><div class='tr_0'>100.0</div></td><td><div>&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Internal Bits 1</div></td>
+    <td><div class='tr_0'>100.0</div></td><td><div>&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Internal Bits 2</div></td>
+    <td><div class='tr_0'>100.0</div></td><td><div>&nbsp;</div></td></tr>
+  
+    <tr class='check_row taglevel-2'><td><div>Calypso testing platform</div></td>
+    <td><div class='tr_0'>100.0</div></td><td><div>&nbsp;</div></td></tr>
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</tbody>
+</table></div>
+
+
+<div class='footer'>uptime service: pingdom<br/>
+report generated on 2020-05-16 with 
+<a href='https://github.com/giacomolozito/uptime-reporting' target='_new'>uptime-reporting</a></div>
+
+
+</body>
+
+</html> 

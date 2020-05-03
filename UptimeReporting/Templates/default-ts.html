@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!-- a variant of default.html with a text summary rather than table-based -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Uptime Report [{{ checks_date_range.start.strftime('%Y-%m-%d') }} - {{ checks_date_range.end.strftime('%Y-%m-%d')}}]</title>
+<style>
+  html {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 90%;
+  }
+  h2 { text-align: center; }
+  p { text-align: center; }
+  table.check_table {
+    margin: 0 auto 1rem auto;
+    border-top: 1px lightgray solid;
+    border-left: 1px lightgray solid;
+  }
+  table.check_table th div, table.check_table td div {
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  }
+  tr.check_row:nth-child(even) td div {
+    background-color: #ececec;
+  }
+  tr.check_summary td div {
+    border-top: 1px solid gray;
+    font-weight: bold;
+    background-color: #ffffb0;
+  }
+  tr.taglevel-1 td:first-child div {
+    margin-left: 2rem;
+  }
+  tr.taglevel-2 td:first-child div {
+    margin-left: 4rem;
+  }
+  tr.check_summary td div.tr_0, tr.check_row td div.tr_0 {
+    background-color: #bbff90;
+  }
+  tr.check_summary td div.tr_1, tr.check_row td div.tr_1 {
+    background-color: #ffe3ab;
+  }
+  tr.check_summary td div.tr_2, tr.check_row td div.tr_2 {
+    background-color: #ffb183; /*#ff8d60;*/
+  }
+  div.footer {
+    text-align: center; font-style: italic; font-size: smaller;
+  }
+</style>
+</head>
+
+<body>
+<h2>Uptime Report [{{ checks_date_range.start.strftime('%Y-%m-%d') }} - {{ checks_date_range.end.strftime('%Y-%m-%d')}}]</h2>
+
+{# if 'nosummary' has been specified in the --report-jinja-flags, skip the summary #}
+{% if 'nosummary' not in flags -%}
+  <p>
+  {# use recursion to get summary stats at all levels #}
+  {# NOTE: recursion is not needed if not using tag grouping or if the template is designed for a specific tag set #}
+  {% macro print_summary_stats(data, label=[]) -%}
+    {% set group_name = ' + '.join(label) if label else 'ALL' %}
+    Average uptime for {{ group_name }} : {{ data._stats.gs_pct_avg|round(4) if data._stats.gs_pct_avg >= 0 else 'n/a' }}<br/>
+    {% for tag in data.keys() %}
+      {% if tag[0] != '_' %}
+        {{ print_summary_stats(data[tag], label=(label + [tag])) }}
+      {% endif %}
+    {% endfor %}
+  {%- endmacro %}
+  {{ print_summary_stats(checks_data) }}
+  </p>
+{%- endif %}
+
+<div><table class='check_table'>
+<tbody>
+<tr class='check_tableh'><th><div>Check Name</div></th><th><div>Uptime %</div></th><th><div>Downtime</div></th></tr>
+{# use a recursive approach to table population, to support tags in a hierarchy #}
+{# NOTE: recursion is not needed if not using tag grouping or if the template is designed for a specific tag set #}
+{% macro table_populate(data, label=[]) -%}
+  {% set group_name = ' + '.join(label) if label else 'ALL' %}
+  <tr class='check_summary taglevel-{{ label|length }}'><td><div>average uptime {{ group_name }}</div></td>
+  <td><div class='tr_{{ data._stats.gs_pct_avg|threshold_status }}'>{{ data._stats.gs_pct_avg|round(4) }}</div></td><td><div>&nbsp;</div></td>
+  {% for check in data._checks %}
+    <tr class='check_row taglevel-{{ label|length }}'><td><div>{{ check.name }}</div></td>
+    <td><div class='tr_{{ check.uptime.pct|threshold_status }}'>{{ check.uptime.pct|round(4) }}</div></td><td><div>{{ check.uptime.totaldown|seconds_to_dhms }}&nbsp;</div></td></tr>
+  {% endfor %}
+  {% for tag in data.keys() %}
+    {% if tag[0] != '_' %}
+      {{ table_populate(data[tag], label=(label + [tag])) }}
+    {% endif %}
+  {% endfor %}
+{%- endmacro %}
+{{ table_populate(checks_data) }}
+</tbody>
+</table></div>
+
+{# if 'nofooter' has been specified in the --report-jinja-flags, skip the footer #}
+{% if 'nofooter' not in flags -%}
+<div class='footer'>uptime service: {{ checks_data._meta.service_name }}<br/>
+report generated on {{ now.strftime('%Y-%m-%d') }} with 
+<a href='https://github.com/giacomolozito/uptime-reporting' target='_new'>uptime-reporting</a></div>
+{% endif %}
+
+</body>
+
+</html> 
