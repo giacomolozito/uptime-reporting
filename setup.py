@@ -47,6 +47,8 @@ setup(
   author="Giacomo Lozito",
   author_email="giacomo.lozito@gmail.com",
   description="service uptime reporting tool",
+  long_description=read('README.md'),
+  long_description_content_type='text/markdown',
   license='GPLv3',
   keywords="service uptime reporting pingdom",
   url="https://github.com/giacomolozito/uptime-reporting",
