@@ -14,9 +14,12 @@ Key features:
 ## How to install
 
 Requires Python => 3.7
-
 ```bash
 pip install uptime-reporting
+```
+or with docker
+```bash
+docker pull giacomolozito/uptime-reporting
 ```
 
 ## Usage
