@@ -1,0 +1,21 @@
+#!/bin/bash
+# this script accepts variables added by Docker Cloud (https://docs.docker.com/docker-cloud/builds/advanced/)
+#
+# must be executed from docker dir of the repo, where the Dockerfile is located
+
+if [ -z $IMAGE_NAME ]; then
+  echo "Variable IMAGE_NAME must be defined to build." >&2
+  exit 1
+fi
+
+# switch context to root dir of repo
+cd ../
+PACKAGE_VERSION=$(grep -Eo "[0-9.]+" UptimeReporting/__init__.py)
+
+echo "Building image $IMAGE_NAME"
+docker build \
+  -f docker/Dockerfile \
+  --build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` \
+  --build-arg VCS_REF=`git rev-parse --short HEAD` \
+  --build-arg SW_VERSION=$PACKAGE_VERSION \
+  -t $IMAGE_NAME .
