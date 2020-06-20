@@ -33,6 +33,12 @@ class Report:
     self.checks_date_range = checks_date_range
     self.text_use_colors = text_use_colors
 
+  @classmethod
+  def list_module_templates(cls):
+    template_loader = jinja2.PackageLoader('UptimeReporting', 'Templates')
+    template_env = jinja2.Environment(loader=template_loader)
+    return sorted([tmpl[:-3] for tmpl in template_env.list_templates(extensions=['j2'])])
+
   def render_text(self):
     # a terminal-friendly report leveraging tabulate module for pretty-printing
     headers=['Check Name','Uptime %', 'Downtime']
@@ -60,11 +66,13 @@ class Report:
     # if specified without path, pick template from the module templates dir; otherwise assume it's user-provided
     if os.path.basename(self.jinja_template) == self.jinja_template:
       logging.debug(f'Using template {self.jinja_template} from module templates dir')
-      template_loader=jinja2.PackageLoader('UptimeReporting', 'Templates')
+      template_loader = jinja2.PackageLoader('UptimeReporting', 'Templates')
+      template_file = '{}{}'.format(os.path.basename(self.jinja_template),'.j2')
     else:
       logging.debug(f'Using template {self.jinja_template}, user-provided')
       template_searchpath = os.path.dirname(self.jinja_template)
       template_loader = jinja2.FileSystemLoader(searchpath=template_searchpath)
+      template_file = os.path.basename(self.jinja_template)
     template_env = jinja2.Environment(loader=template_loader)
     # custom filters:
     # - a timedelta filter to make duration in seconds more readable
@@ -72,7 +80,7 @@ class Report:
     template_env.filters['seconds_to_dhms'] = self.__seconds_to_dhms
     template_env.filters['threshold_status'] = self.__threshold_status
     # render
-    template = template_env.get_template(os.path.basename(self.jinja_template))
+    template = template_env.get_template(template_file)
     report = template.render(
       checks_data=self.checks_data, checks_thresholds=self.thresholds,
       checks_date_range=self.checks_date_range, flags=self.jinja_flags, now=datetime.now()

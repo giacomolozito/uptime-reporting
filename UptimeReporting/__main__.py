@@ -35,6 +35,11 @@ def main():
     if not re.match('^\d+\.?\d*,\d+\.?\d*$',s):
       raise argparse.ArgumentTypeError('Wrong format for report threshold parameter')
     return s
+  def arg_vld_report_jinja_template(s):
+    valid_module_templates = UptimeReporting.Report.Report.list_module_templates()
+    if os.path.basename(s) == s and s not in valid_module_templates:
+      raise argparse.ArgumentTypeError('Module template "{}" not available. If using a custom template, specify the parameter with a path (i.e. ./mytemplate.j2). Otherwise, choose among the available module templates: {}'.format(s, ', '.join(valid_module_templates)))
+    return s
   def arg_vld_date(s):
     if not re.match('(^last$)|(^[0-9]{4}-[0-9]{2}-[0-9]{2}$)|(^[0-9]{4}-[0-9]{2}-[0-9]{2})_([0-9]{4}-[0-9]{2}-[0-9]{2}$)',s):
       raise argparse.ArgumentTypeError('Wrong format for date parameter; use "last" or YYYY-MM-DD or YYYY-MM-DD_YYYY-MM-DD depending on report type')
@@ -55,7 +60,7 @@ def main():
   parser.add_argument('--report-format', help='Report format (default: text); text is a terminal-friendly report, jinja uses templates to produce custom format reports', action='store', dest='report_format', choices=['text','jinja'], default='text')
   parser.add_argument('--report-thresholds', help='Set thresholds for warning and critical uptime status (default "99.95,99.00"). These are typically used to color-code uptime stats in the reports.', action='store', dest='report_thresholds', default='99.95,99.00', type=arg_vld_report_thresholds)
   parser.add_argument('--report-text-colors', help='Shows threshold colors in terminal-friendly text report', action='store_true', dest='report_text_colors', default=False)
-  parser.add_argument('--report-jinja-template', help='Report jinja template for custom format (default: default.html). If a path is not specified, uses the templates available under templates/ module dir.', action='store', dest='report_jinja_template', default='default.html')
+  parser.add_argument('--report-jinja-template', help='Report jinja template for custom format (default: "html"). If specified as filename with a path, reads the jinja template from there. If a path is not specified, uses the templates available under templates/ module dir: {}'.format(', '.join(UptimeReporting.Report.Report.list_module_templates())), action='store', dest='report_jinja_template', type=arg_vld_report_jinja_template, default='html')
   parser.add_argument('--report-jinja-flags', help='A comma-separated list of flags that can be used within the jinja template to customize generation of the report', action='store', type=arg_vld_list_str, dest='report_jinja_flags', default=[])
   parser.add_argument('--report-filename', help='If specified, save report to file instead of printing on screen', action='store', dest='report_filename', default=None)
   parser.add_argument('--tags-grouping', help='If specified, groups checks and aggregates statistics based on tags; different hierarchy levels can be specified; see documentation for details', action='store', dest='tags_grouping', default=None)

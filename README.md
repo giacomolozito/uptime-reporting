@@ -37,7 +37,7 @@ uptime-reporting --service pingdom --token XYZ --report monthly --date 2020-01-0
 HTML-based report of all checks for a custom date range, written to file report.html:
 ```bash
 uptime-reporting --service pingdom --token XYZ --report range --date 2020-02-01_2020-03-15 \
-  --report-format jinja --report-jinja-template default.html --report-filename report.html
+  --report-format jinja --report-jinja-template html --report-filename report.html
 ```
 
 On-screen report with terminal colors, excluding certain tags and checks from the report:
@@ -49,7 +49,7 @@ uptime-reporting --service pingdom --token XYZ --report weekly --date last --tag
 Report grouping checks by product and for each product by client-facing vs internal endpoint (based on tags):
 ```bash
 uptime-reporting --service pingdom --token XYZ --report weekly --date last --tags-grouping "productA,productB|client-facing,internal" \
-  --report-format jinja -report-jinja-template default.html --report-filename report.html
+  --report-format jinja -report-jinja-template html --report-filename report.html
 ```
 
 See [Parameters](docs/PARAMETERS.md), [Tags Grouping](docs/TAGSGROUPING.md) and [Template Writing](docs/TEMPLATES.md) docs for in-depth explanation.  

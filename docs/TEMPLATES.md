@@ -8,11 +8,11 @@ Report templates are written using the [Jinja2](https://jinja.palletsprojects.co
 
 ## Overview
 
-The template to use can be specified with `--report-jinja-template` ; if a path is specified, the jinja template filename is taken from the specified path which can be anywhere on filesystem. If the path is not specified, then the template is taken from the UptimeReports python package of the tool. See [UptimeReporting/Templates](../UptimeReporting/Templates) for the list of predefined templates and the [Parameters](PARAMETERS.md) doc section for more details around the jinja template parameters.
+The template to use can be specified with `--report-jinja-template` ; if a path is specified, the jinja template filename is taken from the specified path which can be anywhere on filesystem. If the path is not specified, then the template is taken from the UptimeReports python package of the tool. Use `--help` or look into [UptimeReporting/Templates](../UptimeReporting/Templates) for a list of module templates, and the [Parameters](PARAMETERS.md) doc section for more details around the jinja template parameters.
 
-In order to fill in data, the template can use the documented variables and some custom jinja filters. Jinja supports recursion (see [default.html](../UptimeReporting/Templates/default.html) template for an example) but recursion is not necessary if not using tag grouping or if generating a report for a fixed group of tags, so the combinations to process are predictable in the template.
+In order to fill in data, the template can use the documented variables and some custom jinja filters. Jinja supports recursion (see [html.j2](../UptimeReporting/Templates/html.j2) template for an example) but recursion is not necessary if not using tag grouping or if generating a report for a fixed group of tags, so the combinations to process are predictable in the template.
 
-Example from default.html, putting statistics in a table using a recursive macro:
+Example from html.j2, putting statistics in a table using a recursive macro:
 ```
 <table class='check_table'>
 <tbody>
