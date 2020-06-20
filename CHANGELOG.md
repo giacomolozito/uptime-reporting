@@ -35,7 +35,12 @@ Human-readable list of changes.
 - Fix for the default value of the `--report-jinja-flags` parameter
 
 
-## [0.1.1] - 2020-05-16
+## 0.1.1 - 2020-05-16
 
 ### Added
 - Initial version
+
+[unreleased]: https://github.com/giacomolozito/uptime-reporting/compare/0.1.4...HEAD
+[0.1.4]: https://github.com/giacomolozito/uptime-reporting/compare/0.1.3...0.1.4
+[0.1.3]: https://github.com/giacomolozito/uptime-reporting/compare/0.1.2...0.1.3
+[0.1.2]: https://github.com/giacomolozito/uptime-reporting/compare/d3365ce2db...0.1.2
