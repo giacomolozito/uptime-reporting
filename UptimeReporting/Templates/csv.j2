@@ -1,0 +1,15 @@
+Check Name,UptimePerc,DowntimeSeconds,Tags{{ '\n' }}
+{#- use a recursive approach to table population, to support tags in a hierarchy -#}
+{#- NOTE: recursion is not needed if not using tag grouping or if the template is designed for a specific tag set -#}
+{%- macro table_populate(data, label=[]) -%}
+  {%- set taglist = '|'.join(label) if label else '' -%}
+  {%- for check in data._checks -%}
+    {{ check.name|replace(',',' ') }},{{ check.uptime.pct|round(4) }},{{ check.uptime.totaldown }},{{ taglist }}{{ '\n' }}
+  {%- endfor -%}
+  {%- for tag in data.keys() -%}
+    {%- if tag[0] != '_' -%}
+      {{ table_populate(data[tag], label=(label + [tag])) }}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endmacro -%}
+{{- table_populate(checks_data) -}}
