@@ -34,7 +34,8 @@ setup(
 
   data_files=[
     ('docs', glob('docs/**')),
-    ('.', ['./LICENSE'])
+    ('.', ['./LICENSE']),
+    ('.', ['./CHANGELOG.md'])
   ],
 
   install_requires=[
