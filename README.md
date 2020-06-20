@@ -7,7 +7,7 @@ Key features:
 - uses the service API to gather uptime statistics for a designed time range (weekly, monthly, custom)
 - [tags grouping](docs/TAGSGROUPING.md) capability with aggregated stats per tags, to make reports more structured and readable
 - [inclusion/exclusion](docs/PARAMETERS.md#filters) of checks from the reports based on their id, tags or status
-- terminal-friendly on-screen report generation or Jinja-based [report templating](docs/TEMPLATING.md) to output in HTML, PDF, XML, etc.
+- terminal-friendly on-screen report generation or Jinja-based [report templating](docs/TEMPLATES.md) to output in HTML, PDF, XML, etc.
 
 ![Report examples](https://user-images.githubusercontent.com/9863475/82117785-88764000-976a-11ea-9549-735411ca813b.png)
 
