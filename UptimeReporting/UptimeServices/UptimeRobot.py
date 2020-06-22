@@ -36,18 +36,21 @@ class UptimeRobot(BaseUptimeService):
     }
     self.api_key = f'api_key={api_token}'
     self.filter_opts = filter_opts
-    # try to open a connection to confirm correct api key and also get checks count
-    logging.debug('Attempt a getMonitors request to UptimeRobot to confirm API key validity and get checks count')
+    # try to open a connection to confirm correct api key
+    logging.debug('Attempt a getMonitors request to UptimeRobot to confirm API key validity')
     res = self.__req('getMonitors', {'limit':1})
-    if res['stat'] == 'ok':
-      self.checks_count = res['pagination']['total']
-    else:
+    if res['stat'] != 'ok':
       raise Exception(f'getMonitors request failed - {res}')
 
   def check_get_all(self):
     # for uptimerobot, do the actual data requests in check_get_all_summary_avg
-    # so at this time we only provide back the total check count
-    checks = { 'count': self.checks_count, '_data': None }
+    # so at this time we only provide back the total check count, optimised on checks_include if present
+    req_params = { 'limit':1 }
+    # put checks_include filter directly in the request if we have any
+    if self.filter_opts['checks_include']:
+      req_params['monitors'] = '-'.join(self.filter_opts['checks_include'])
+    res = self.__req('getMonitors', req_params)
+    checks = { 'count': res['pagination']['total'], '_data': None }
     return checks
 
   def check_get_all_summary_avg(self, checks, from_ts, to_ts, report_progress_func=None):
@@ -57,7 +60,12 @@ class UptimeRobot(BaseUptimeService):
     checks_offset = 0
     checks_page = 50
     while (checks_offset < checks['count']):
-      res = self.__req('getMonitors', { 'limit':checks_page, 'offset':checks_offset, 'custom_uptime_ranges':f'{from_ts}_{to_ts}' })
+      req_params = { 'limit':checks_page, 'offset':checks_offset, 'custom_uptime_ranges':f'{from_ts}_{to_ts}' }
+      # put checks_include filter directly in the request if we have any
+      if self.filter_opts['checks_include']:
+        req_params['monitors'] = '-'.join(self.filter_opts['checks_include'])
+      # make request
+      res = self.__req('getMonitors', req_params)
       for check in res['monitors']:
         pr_counter += 1
         # uptimerobot does not have tags at time of writing,
@@ -106,7 +114,7 @@ class UptimeRobot(BaseUptimeService):
     res = json.loads(req.text)
     # UptimeRobot API returns 200 even on API failure (i.e. wrong api key) so check the stat code on response
     if res['stat'] != 'ok':
-      raise Exception(f'getMonitors request failed - {res}')
+      raise Exception(f'{path} request failed - {res}')
     return res
 
   # utility method to process check/tag filters; returns true if check must be filtered
