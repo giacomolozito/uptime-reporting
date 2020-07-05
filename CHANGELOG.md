@@ -5,6 +5,14 @@ Human-readable list of changes.
 
 ## [Unreleased]
 
+## [0.2.0] - 2020-07-05
+
+### Added
+
+- Support for the UptimeRobot uptime service
+- More documentation to cover service-specific details
+
+
 ## [0.1.4] - 2020-06-20
 
 ### Added
@@ -40,7 +48,8 @@ Human-readable list of changes.
 ### Added
 - Initial version
 
-[unreleased]: https://github.com/giacomolozito/uptime-reporting/compare/0.1.4...HEAD
+[unreleased]: https://github.com/giacomolozito/uptime-reporting/compare/0.2.0...HEAD
+[0.2.0]: https://github.com/giacomolozito/uptime-reporting/compare/0.1.4...0.2.0
 [0.1.4]: https://github.com/giacomolozito/uptime-reporting/compare/0.1.3...0.1.4
 [0.1.3]: https://github.com/giacomolozito/uptime-reporting/compare/0.1.2...0.1.3
 [0.1.2]: https://github.com/giacomolozito/uptime-reporting/compare/d3365ce2db...0.1.2
