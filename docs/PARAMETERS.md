@@ -14,8 +14,8 @@ The mandatory ones. Nothing can be done without these.
 
 | Parameter | Mandatory | Default value | Parameter description |
 | --- | --- | --- | --- |
-| `--service SERVICE_NAME` | yes | n.a. | Used to indicate the uptime service for data collection; currently, only `pingdom` is supported |
-| `--token API_TOKEN` | yes | n.a. | Used to pass the uptime service API bearer token for API authentication |
+| `--service SERVICE_NAME` | yes | n.a. | Used to indicate the uptime service for data collection; currently, `pingdom` and `uptimerobot` are supported; see the [service-specific notes](UPTIMESERVICES.md) for more information |
+| `--token API_TOKEN` | yes | n.a. | Used to pass the uptime service API token or key for API authentication |
 | `--report-type {monthly,weekly,range}` | yes | n.a. | The report type, from a date interval perspective. Monthly, Weekly or custom Range report. The type of report changes the expected input of the `--date` parameter |
 | `--date DATE` | yes | n.a. | For Monthly and Weekly `--report-type`, this must be a date in ISO 8601 format (YYYY-MM-DD) that will be used to identify the month or week of interest; as a convenience, one can also specify "last" to get the last month or week report; for the Range `--report-type`, this must be a date range with an underscore as separator, in format YYYY-MM-DD\_YYYY-MM-DD |
 

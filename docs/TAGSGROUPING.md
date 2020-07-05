@@ -6,7 +6,7 @@ The classic use case is the following: with services like Pingdom, people manage
 
 As such, a flattened report that puts all of these entities together and builds an uptime average across all of them is not necessarily useful. After all, an outage on an internal service endpoint might not be as critical as an outage on the client-facing user-interface or API.
 
-Thankfully, checks can have tags (or more rigorously, "labels") allowing to qualify each uptime check in one or more way. This can be leveraged to group checks with uptime-reporting, using the `--tags-grouping` parameter.
+Thankfully, checks can have tags allowing to qualify each uptime check in one or more way. This can be leveraged to group checks with uptime-reporting, using the `--tags-grouping` parameter. Note that tags support might differ with each uptime service, check for any [service-specific notes](UPTIMESERVICES.md).
 
 ### A practical example
 

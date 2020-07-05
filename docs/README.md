@@ -1,3 +1,4 @@
 - [Parameters](PARAMETERS.md)
 - [Tags Grouping](TAGSGROUPING.md)
 - [Writing Templates](TEMPLATES.md)
+- [Service-specific Notes](UPTIMESERVICES.md)

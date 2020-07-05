@@ -1,10 +1,10 @@
 # uptime-reporting
 
 Service Uptime reporting tool, designed around uptime checks and leveraging tags to organize checks in the report.  
-Currently supports [Pingdom](https://www.pingdom.com/) for data collection.
+Currently supports [Pingdom](https://www.pingdom.com/) and [UptimeRobot](https://uptimerobot.com/) for data collection.
 
 Key features:
-- uses the service API to gather uptime statistics for a designed time range (weekly, monthly, custom)
+- uses the service API to gather uptime statistics for the time range of choice (weekly, monthly, custom)
 - [tags grouping](docs/TAGSGROUPING.md) capability with aggregated stats per tags, to make reports more structured and readable
 - [inclusion/exclusion](docs/PARAMETERS.md#filters) of checks from the reports based on their id, tags or status
 - terminal-friendly on-screen report generation or Jinja-based [report templating](docs/TEMPLATES.md) to output in HTML, PDF, XML, etc.
@@ -52,11 +52,13 @@ uptime-reporting --service pingdom --token XYZ --report weekly --date last --tag
   --report-format jinja -report-jinja-template html --report-filename report.html
 ```
 
-See [Parameters](docs/PARAMETERS.md), [Tags Grouping](docs/TAGSGROUPING.md) and [Template Writing](docs/TEMPLATES.md) docs for in-depth explanation.  
+The examples above are valid with any of the supported uptime services, by changing the `--service` parameter accordingly.
+
+See [Parameters](docs/PARAMETERS.md), [Tags Grouping](docs/TAGSGROUPING.md), [Template Writing](docs/TEMPLATES.md) and [Service-Specific Notes](docs/UPTIMESERVICES.md) docs for in-depth explanation.  
 Understanding Tag Grouping is especially important for well-organized reports.
 
 
 ## Disclaimer
 
 This is an open source tool released under GPLv3, in the hope it will be useful.  
-It is not endorsed by Pingdom, Solarwinds or any other organization.
+It is not endorsed by Pingdom, UptimeRobot or any other organization.
